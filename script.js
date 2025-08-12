@@ -53,9 +53,40 @@ document.querySelector(".prev").addEventListener("click", () => {
 // Initialize
 showFeedbackSlide(feedbackIndex);
 
+document.addEventListener("DOMContentLoaded", function () {
+    const counters = document.querySelectorAll(".counter");
+    let started = false; // Prevent running twice
 
+    function startCounter() {
+        counters.forEach(counter => {
+            counter.innerText = "0";
+            const updateCounter = () => {
+                const target = +counter.getAttribute("data-target");
+                const count = +counter.innerText;
+                const increment = target / 200; // Speed control
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(updateCounter, 10);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCounter();
+        });
+    }
 
+    function isVisible(el) {
+        const rect = el.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom >= 0;
+    }
 
+    window.addEventListener("scroll", function () {
+        if (!started && isVisible(document.querySelector(".why-stats"))) {
+            startCounter();
+            started = true;
+        }
+    });
+});
 
 
 
