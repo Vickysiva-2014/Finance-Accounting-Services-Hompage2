@@ -9,19 +9,26 @@
   <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-   <nav class="navbar">
+ <nav class="navbar">
   <div class="nav-left-overlay"></div>
 
   <div class="navbar-content">
     <div class="nav-left">
-      <img src="Images/logo.png" alt="Logo" class="logo" />
+      <img src="images/logo.png" alt="Logo" class="logo" />
     </div>
 
+    <!-- Toggle button visible only on mobile -->
+    <button class="menu-toggle" id="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
     <ul class="nav-links">
-      <li><a href="#">Home</a></li>
+      <li><a href="index.html">Home</a></li>
       <li><a href="#">About</a></li>
       <li class="dropdown">
-        <a href="#">Pages <span class="arrow">&#9662;</span></a>
+        <a href="#">Pages<span class="arrow">&#9662;</span></a>
         <ul class="dropdown-menu">
           <li><a href="#">FAQ</a></li>
           <li><a href="#">404 Page</a></li>
@@ -33,7 +40,11 @@
       <li><a href="#">Blog</a></li>
       <li><a href="#">Contact</a></li>
     </ul>
-    
+
+    <div class="dark-mode-toggle" title="Toggle Dark Mode">
+      <i class="fas fa-moon"></i>
+    </div>
+
     <div class="nav-right">
       <button class="consulting-btn">
         <div class="consulting-text">Consulting Now</div>
@@ -42,6 +53,7 @@
     </div>
   </div>
 </nav>
+
 
 <header class="hero">
     <div class="slider">
@@ -71,7 +83,7 @@
    <section class="about-section">
   <div class="about-container">
     <div class="about-image" data-aos="fade-right" data-aos-delay="400">
-      <img src="Images/about-illustration.png" alt="About Us Illustration">
+      <img src="images/about-illustration.png" alt="About Us Illustration">
     </div>
     <div class="about-content" data-aos="fade-left" data-aos-delay="600">
       <p class="section-label" data-aos="fade-up" data-aos-delay="600">About Us</p>
@@ -554,7 +566,7 @@
   <!-- Top section: Logo + Newsletter -->
   <div class="footer-top" data-aos="fade-up" data-aos-delay="400">
     <div class="footer-logo">
-      <img src="Images/logo.png" alt="Logo" class="logo1" />
+      <img src="images/logo.png" alt="Logo" class="logo1" />
       <p>Power of choice is untrammelled & when nothing prevents our being able</p>
       <div class="social-icons">
         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -611,7 +623,7 @@
   <!-- Footer bottom -->
   <div class="footer-bottom">
     <p>Copy@ <span class="highlight">Stackly</span>. Example -2025</p>
-    <div class="scroll-top">
+    <div class="scroll-top" id="scrollTopBtn">
       <i class="fas fa-chevron-up"></i>
     </div>
     <p>All Right Reserved Design By Example</p>
@@ -631,6 +643,3 @@
   <script src="script.js"></script>
 </body>
 </html>
-
-
-

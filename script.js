@@ -90,6 +90,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  const toggleBtn = document.querySelector(".dark-mode-toggle");
+
+  toggleBtn.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+
+    // Save preference
+    if (document.body.classList.contains("dark-mode")) {
+      localStorage.setItem("theme", "dark");
+      toggleBtn.innerHTML = '<i class="fas fa-sun"></i>'; // Change icon
+    } else {
+      localStorage.setItem("theme", "light");
+      toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+    }
+  });
+
+  // Load saved theme
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggleBtn.innerHTML = '<i class="fas fa-sun"></i>';
+  }
+});
+
+const toggleBtn = document.getElementById("menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+toggleBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  toggleBtn.classList.toggle("active");
+});
 
 
+window.addEventListener("scroll", function() {
+  const scrollBtn = document.getElementById("scrollTopBtn");
+  if (window.scrollY > 200) {
+    scrollBtn.style.display = "flex";
+  } else {
+    scrollBtn.style.display = "none";
+  }
+});
 
+// Scroll to top smoothly
+document.getElementById("scrollTopBtn").addEventListener("click", function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+});
